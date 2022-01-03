@@ -7,6 +7,8 @@
 #include "Components/StaticMeshComponent.h"
 #include "Components/BoxComponent.h"
 #include "Ball.h"
+#include "Kismet/GameplayStatics.h"
+#include "Paddle_Player_Controller.h"
 
 // Sets default values
 ABrick::ABrick()
@@ -32,7 +34,10 @@ void ABrick::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//Points = 1.0f;
+
+	//////////////Casting To Paddle_Player_Controller////////////////////////////////////////
+	PlayerController_REF = Cast<APaddle_Player_Controller>(
+		UGameplayStatics::GetPlayerController(GetWorld(), 0));
 
 	Box_Collision->OnComponentBeginOverlap.AddDynamic(this, &ABrick::OnOverlapBegin);
 	
@@ -66,10 +71,15 @@ void ABrick::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor* OtherA
 
 void ABrick::DestroyBrick()
 {
+
+
+
 	this->Destroy();
-	
-	//Points = Points - 1.0f;
-	//UE_LOG(LogTemp, Warning, TEXT("The float value is: %f"), Points);
+
+	//////////////Casting To Paddle_Player_Controller////////////////////////////////////////
+	PlayerController_REF->Points = PlayerController_REF->Points + 1.0f;
+		
+	UE_LOG(LogTemp, Warning, TEXT("The float value is: %f"), PlayerController_REF->Points);
 	
 	
 }

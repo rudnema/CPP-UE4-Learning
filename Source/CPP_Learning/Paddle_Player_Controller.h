@@ -46,6 +46,7 @@ protected:
 
 public:
 
+	//points///////////////////////////////////////////////////////////////////
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	float Points;
 

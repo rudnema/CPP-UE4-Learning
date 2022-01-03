@@ -7,6 +7,8 @@
 #include "Brick.generated.h"
 
 class UBoxComponent;
+//////////////Casting To Paddle_Player_Controller////////////////////////////////////////
+class APaddle_Player_Controller;
 
 UCLASS()
 class CPP_LEARNING_API ABrick : public AActor
@@ -42,5 +44,9 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+
+	//////////////Casting To Paddle_Player_Controller////////////////////////////////////////
+APaddle_Player_Controller* PlayerController_REF;
 
 };

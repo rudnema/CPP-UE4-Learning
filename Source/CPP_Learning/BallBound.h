@@ -23,7 +23,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(VisibleAnywhere, BluepringReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 		UBoxComponent* Box_Collision;
 
 	UFUNCTION()

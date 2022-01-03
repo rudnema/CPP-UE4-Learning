@@ -40,13 +40,15 @@ void ABallBound::Tick(float DeltaTime)
 void ABallBound::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndexType, bool bFromSweep,
 	const FHitResult& SweepResult)
+
 {
+
 
 	if (OtherActor->ActorHasTag("Ball")) {
 		OtherActor->Destroy();
 
 		PlayerController_REF->SpawnNewBall();
+	}
 }
-
 
 

@@ -15,6 +15,7 @@ APaddle_Player_Controller::APaddle_Player_Controller()
 
 void APaddle_Player_Controller::BeginPlay()
 {
+	Points = 0.0f;
 	TArray<AActor*> CameraActors;
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ACameraActor::StaticClass(), CameraActors);
 
@@ -65,4 +66,5 @@ void APaddle_Player_Controller::SpawnNewBall()
 
 	}
 
+	
 }

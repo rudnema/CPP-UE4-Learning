@@ -7,6 +7,7 @@
 #include "Paddle_Player_Controller.generated.h"
 
 
+
 class ABall;
 
 
@@ -15,7 +16,11 @@ class CPP_LEARNING_API APaddle_Player_Controller : public APlayerController
 {
 	GENERATED_BODY()
 
+		
+
 		APaddle_Player_Controller();
+
+	
 
 	UFUNCTION()
 		virtual void SetupInputComponent() override;
@@ -40,6 +45,9 @@ protected:
 	FActorSpawnParameters SpawnInfo;
 
 public:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	float Points;
 
 	void SpawnNewBall();
 

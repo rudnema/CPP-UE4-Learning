@@ -32,6 +32,8 @@ void ABrick::BeginPlay()
 {
 	Super::BeginPlay();
 
+	//Points = 1.0f;
+
 	Box_Collision->OnComponentBeginOverlap.AddDynamic(this, &ABrick::OnOverlapBegin);
 	
 }
@@ -52,7 +54,7 @@ void ABrick::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor* OtherA
 		ABall* MyBall = Cast<ABall>(OtherActor);
 
 		FVector BallVelocity = MyBall->GetVelocity();
-		BallVelocity *= (SpeedModifierOnBounce - 1.0f);
+		BallVelocity *= (SpeedModifierOnBounce - 0.9f);
 
 		MyBall->GetBall()->SetPhysicsLinearVelocity(BallVelocity, true);
 
@@ -65,6 +67,11 @@ void ABrick::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor* OtherA
 void ABrick::DestroyBrick()
 {
 	this->Destroy();
+	
+	//Points = Points - 1.0f;
+	//UE_LOG(LogTemp, Warning, TEXT("The float value is: %f"), Points);
+	
+	
 }
 
 
